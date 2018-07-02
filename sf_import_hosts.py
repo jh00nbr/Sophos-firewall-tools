@@ -48,7 +48,6 @@ def import_objects(file):
 
 	for x in read_file:
 	    REGEX_IP = re.findall(r'[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}',x[0]) # Regex to Verify if exist ip address in object name
-
 	    if REGEX_IP:
 	            OBJECT_EXCEPTION.append(x)               
 	    try:
@@ -57,7 +56,6 @@ def import_objects(file):
 	            OBJECTS.append({ OBJECT_NAME : OBJECT_VALUE })
 	    except:
 	            pass
-
 	return OBJECTS
 
 
@@ -67,11 +65,9 @@ def create_iphost(nameObj, ipAddr, type_obj='IP_HOST'): # Create a object type I
 
 	try:
 		r_api = requests.get("https://{host_fw}:{defaultport}/webconsole/APIController?reqxml=<Request><Login><Username>{username}</Username><Password>{password}</Password></Login><Set operation='add'><IPHost><Name>{name}</Name><IPFamily>IPv4</IPFamily><HostType>IP</HostType><IPAddress>{ipaddress}</IPAddress></IPHost></Set></Request>".format(host_fw=_CONFIGS['host_fw'],defaultport=_CONFIGS['default_port'],username=_CONFIGS['username_fw'], password=_CONFIGS['passwd_fw'], name=NAME_OBJECT, ipaddress=IP_ADDRESS),verify=False)
-
 		if 'API operations are not allowed from the requester IP address' in r_api.content:
 			print('{0}[+]{1} API operations are not allowed from the requester IP address'.format(_COLORS['OK'],_COLORS['ENDC'],NAME_OBJECT))
 			sys.exit(0)
-
 		if 'Configuration applied successfully' in r_api.content:
 			print('{0}[+]{1} [{2}] [{3}] [{4}] Object added successfully'.format(_COLORS['OK'],_COLORS['ENDC'],NAME_OBJECT, IP_ADDRESS, type_obj))
 		elif 'Operation failed. Entity having same name already exists':
