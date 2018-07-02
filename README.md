@@ -13,5 +13,5 @@ Scripts developed for process automation and testing in Sophos firewall.
 ./sfimport.py -l <file_hosts.txt> -gw <ip_firewall> -u <user> -p <password> -P <default_port> --importhost 
 
 
-![alt text](https://raw.githubusercontent.com/jh00nbr/Sophos-firewall-tools/master/output_import.png)
+![alt text](https://raw.githubusercontent.com/jh00nbr/Sophos-firewall-tools/master/output_import_fw.png)
 
