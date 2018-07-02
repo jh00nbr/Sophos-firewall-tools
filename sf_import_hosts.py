@@ -23,7 +23,7 @@ parser = argparse.ArgumentParser(prog='SFimport objects')
 
 parser.add_argument("-l", "--listobjects", help="List with objects to be imported.", default="objects.list", required=True)
 parser.add_argument("-gw", "--hostgw", help="Host firewall Sophos.", required=True)
-parser.add_argument("-host", "--importhost", help="Import option", default=1,required=False)
+parser.add_argument("-host", "--importhost", help="Import option", default=1,action="store_true",required=False)
 parser.add_argument("-u", "--user", help="User firewall Sophos.", default="admin", required=True)
 parser.add_argument("-p", "--passwd", help="Password firewall Sophos.", required=True)
 parser.add_argument("-P", "--port", help="Web port Sophos", required=True)
