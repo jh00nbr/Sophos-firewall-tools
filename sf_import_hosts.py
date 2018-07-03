@@ -17,6 +17,9 @@ import argparse
 import re
 import sys
 
+__author__ = "Jhonathan Davi A.K.A jh00nbr"
+__email__ = "jdavi@insightsecurity.com.br"
+
 urllib3.disable_warnings() # Disable warning alerts requests SSL 
 
 parser = argparse.ArgumentParser(prog='SFimport objects')
